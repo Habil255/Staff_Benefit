@@ -140,6 +140,87 @@ if(isset($_POST['addmember']))
                
           }
 
+
+
+		  if(isset($_POST['addStaffBen']))
+		  {
+			   if($_POST['empNo']!=''&&$_POST['empName']!=''&&$_POST['benType']!=''&&$_POST['benDesc']!=''&&$_POST['benAmount']!=''&&$_POST['dateStart']!=''&&$_POST['dateEnd']!='')
+				{              
+				 
+				$empNo = mysqli_real_escape_string($db,$_POST['empNo']);
+			 $empName = mysqli_real_escape_string($db,$_POST['empName']);		
+		   $benType=mysqli_real_escape_string($db,$_POST['benType']);
+			 $benDesc =mysqli_real_escape_string($db,$_POST['benDesc']);
+			  $benAmount = mysqli_real_escape_string($db,$_POST['benAmount']);
+				$dateStart = mysqli_real_escape_string($db,$_POST['dateStart']);
+				$dateEnd = mysqli_real_escape_string($db,$_POST['dateEnd']);
+						   $pagex = mysqli_real_escape_string($db,$_POST['page']);
+					// 	 $orgName = $_FILES['filed']['name'];
+					//   $orgtmpName = $_FILES['filed']['tmp_name'];
+					//   $orgSize = $_FILES['filed']['size'];
+					//   $orgType = $_FILES['filed']['type'];
+				 
+				
+			  
+				 if (isset($_POST["mr"]))
+									  {
+										 $mtitle="Mr";
+									  }
+					  elseif(isset($_POST["miss"]))
+									  {     	
+										$mtitle="Miss";
+									   }
+					  elseif(isset($_POST["mrs"]))
+										{     	
+								   $mtitle="Mrs";
+										}	 
+					  elseif (isset($_POST["dr"]))
+									   {
+			  
+										$mtitle="Dr";
+									   }
+					 elseif (isset($_POST["pro"]))
+									{   $mtitle="Pro";
+									   }
+									else	
+									{
+										$mtitle="";
+									}
+									
+									$check="SELECT * FROM staff_ben WHERE Employee_numb='$empNo' && Employee_name='$empName'";
+									$checks=mysqli_query($db,$check);
+							   $found=mysqli_num_rows($checks);
+								   if($found==0)
+								   {
+																		//  move_uploaded_file ($orgtmpName,'images/'.$orgName);
+									 
+									   $query = "INSERT INTO staff_ben (Employee_numb,Employee_name,Benefit_type,Benefit_desc,Benefit_amount,date_start,date_end) ".
+								 "VALUES ('$empNo','$empName','$benType','$benDesc','$benAmount','$dateStart','$dateEnd')";
+									  $db->query($query) or die('Error1, query failed');	
+									  
+									  $memberadd="tyy";					  
+									  $_SESSION['memberadded']=$memberadd;
+										 header("Location:$pagex");  //member added successfully
+					  
+				   
+				   
+								   }else{
+									   $_SESSION['memberexist']="member already exist";
+									  header("Location:$pagex");  
+					  
+								   }
+					 }else{
+						   $_SESSION['emptytextboxes']="Not all text boxes were completed";
+						 
+									  header("Location:$pagex");  
+					  
+						 }
+					
+			   }
+
+
+
+
  if(isset($_POST['Valuedel'])){ 	
 	
 	 $tutor=$_POST['Valuedel'];
@@ -322,4 +403,4 @@ if(isset($_POST['addmember']))
 	}
 ?>
  	
-?>
+

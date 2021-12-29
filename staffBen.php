@@ -440,7 +440,7 @@ $retrieve = mysqli_query($db,$sqluse);
   </div>
   </div>
  
- <div id="Useradd" class="modal fade" role="dialog">
+ <div id="staffAdd" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
@@ -467,16 +467,16 @@ $retrieve = mysqli_query($db,$sqluse);
 				<p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;Employee No:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="empNo" id='oldname'></span></p>
         	    <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Employee Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="empName" id='ss'></span></p>
         		<p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Benefit Type:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="benType"  id='cc'></span></p>
-        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Benefit Description:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="benDesc" id='dd'></span></p>
+        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Benefit Description:<label style="color: red;font-size:20px;">*</label><textarea name="benDesc" id='dd' cols="30" rows="5" style="width:270px;"></textarea></span></p>
         	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Benefit Amount:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="benAmount" id='bb'></span></p>
-        	     <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Started:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="dateStart" id='oldpass'></span></p>
-				 <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Ended:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="dateEnd" id='oldpass'></span></p>
+        	     <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Started:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="dateStart" id='oldpass'></span></p>
+				 <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Ended:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="dateEnd" id='oldpass'></span></p>
                     
         		   <input type="hidden" name="page" value="admin.php"/>                                                        	      		
          </center>
       </div>
       <div class="modal-footer">
-       <input type="submit" class="btn btn-success" value="Submit" id="addmember" name="addmember"> &nbsp;
+       <input type="submit" class="btn btn-success" value="Submit" id="addStaffBen" name="addStaffBen"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
       </div>
@@ -619,7 +619,7 @@ $retrieve = mysqli_query($db,$sqluse);
               </li> -->
                             
               <li class="treeview">
-                  <a data-toggle='modal' data-id='' href='#Useradd' class='open-adduser'><i class="fa fa-user"></i>Add Benefit</a>
+                  <a data-toggle='modal' data-id='' href='#staffAdd' class='open-adduser'><i class="fa fa-user"></i>Add Benefit</a>
          
               </li>
              
