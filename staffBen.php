@@ -714,10 +714,10 @@ $retrieve = mysqli_query($db,$sqluse);
 				
 				
 	
-			<div class="charts">		
-			<div class="mid-content-top charts-grids">
+			<div class="row">		
+			<div class="card-body mid-content-top charts-grids">
 				<div class="middle-content">
-						<h4 class="title">Users</h4>
+						<h4 class="title">Staffs</h4>
 					<!-- start content_slider -->
 				<div class="alert alert-info">
                              <i class="fa fa-envelope"></i>&nbsp;This screen displays 50 records use the search box to spool more records
@@ -727,43 +727,47 @@ $retrieve = mysqli_query($db,$sqluse);
         <thead>
             <tr>
             	<th>ID</th>
-                <th>Name</th>
-                <th>STAFF ID</th>
-                <th>RANK</th>              
-                <th>DEPARTMENT</th>
-                <th>CONTACTS</th>           
+                <th>Employee Number</th>
+                <th>Employee Name</th>
+                <th>Benefit Type</th>              
+                <th>Benefit Description</th>
+                <th>Benefit Amount</th>
+                <th>Start Date</th>
+                <th>End Date</th>           
                 <th>PRINT</th>
                 <th>EDIT</th>
                 <th>DELETE</th>
             </tr>
         </thead>
         <tbody>
-        	 <?php   $sqlmember ="SELECT * FROM Users ";
+        	 <?php   $sqlmember ="SELECT * FROM staff_ben ";
 			       $retrieve = mysqli_query($db,$sqlmember);
 				                    $count=0;
                      while($found = mysqli_fetch_array($retrieve))
 	                 {
-                       $title=$found['Mtitle'];$firstname=$found['Firstname'];$sirname=$found['Sirname'];$rank=$found['Rank'];
-                       $id=$found['id'];$dept=$found['Department'];$contact=$found['Email'];
-			                $count=$count+1;  $get_time=$found['Time']; $time=time(); $pass=$found['Staffid'];
-			              $names=$firstname." ".$sirname;
+                       $id=$found['emp_id'];$EmplNumber=$found['Employee_numb'];$EmplName=$found['Employee_name'];$BenefitType=$found['Benefit_type'];
+                       $BenefitDesc=$found['Benefit_desc'];$BenefitAmount=$found['Benefit_amount'];$startDate=$found['date_start'];$endDate=$found['date_end'];
+			                $count=$count+1;  
+                    //   $get_time=$found['Time']; $time=time(); $pass=$found['Staffid'];
+			              // $names=$firstname." ".$sirname;
 					    	 
 			      echo"<tr>    <td>$id</td>                                       
-                             <td>$title $firstname $sirname</td>        	
-                             <td>$pass</td>
-                             <td>$contact</td>
-                             
-			                 <td>$dept</td>
-			                 <td>$rank</td>
+                          <td>$EmplNumber</td>        	
+                          <td>$EmplName</td>
+                          <td>$BenefitType</td>  
+			                 <td>$BenefitDesc</td>
+			                 <td>$BenefitAmount</td>
+			                 <td>$startDate</td>
+			                 <td>$endDate</td>
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn  btn-success' title='click to print report' ><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>
 			                 <td>
-			                   <a data-toggle='modal' data-id='$id' data-ie='$firstname'   data-if='$sirname' data-ig='$rank' data-ih='$dept' data-ij='$contact' data-ik='$pass' class='open-Passwords btn  btn-info' title='edit user details' href='#Passwords'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
+			                   <a data-toggle='modal' data-id='$id' data-ie='$EmplNumber'   data-if='$EmplName' data-ig='$BenefitType' data-ih='$BenefitDesc' data-ij='$BenefitAmount' data-ik='$startDate' data-ik='$endDate' class='open-Passwords btn  btn-info' title='edit user details' href='#Passwords'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
 							 
 			                 </td>				                 
 			                 <td>
-			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
+			                   <a data-id='$id'  class='open-Delete btn btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
 							 
 			                 </td>			 
                              </tr>"; 
