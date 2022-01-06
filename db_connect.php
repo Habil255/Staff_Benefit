@@ -50,7 +50,7 @@
                                   Employee_name varchar(300)NOT NULL,
                                   Benefit_type Varchar(30)NOT NULL,                               
                                   Benefit_desc varchar(300)NOT NULL,
-                                  Benefit_amount integer(10)NOT NULL,
+                                  Benefit_amount float(10)NOT NULL,
                                   date_start date NOT NULL,
                                   date_end date NOT NULL,
                                   -- Picname varchar(1000)NOT NULL,

@@ -467,8 +467,8 @@ $retrieve = mysqli_query($db,$sqluse);
 				<p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;Employee No:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="empNo" id='oldname'></span></p>
         	    <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Employee Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="empName" id='ss'></span></p>
         		<p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Benefit Type:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="benType"  id='cc'></span></p>
-        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Benefit Description:<label style="color: red;font-size:20px;">*</label><textarea name="benDesc" id='dd' cols="30" rows="5" style="width:270px;"></textarea></span></p>
-        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Benefit Amount:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="benAmount" id='bb'></span></p>
+        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Benefit Description:<label style="color: red;font-size:20px;">*</label><textarea type name="benDesc" id='dd' cols="30" rows="5" style="width:270px;"></textarea></span></p>
+        	     <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Benefit Amount:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" min="0" max=" " step="any" type="number" name="benAmount" id='bb'></span></p>
         	     <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Started:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="dateStart" id='oldpass'></span></p>
 				 <p ><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Date Ended:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="dateEnd" id='oldpass'></span></p>
                     
@@ -713,7 +713,7 @@ $retrieve = mysqli_query($db,$sqluse);
 				
 				
 				
-	
+                                     
 			<div class="row">		
 			<div class="card-body mid-content-top charts-grids">
 				<div class="middle-content">
@@ -750,12 +750,16 @@ $retrieve = mysqli_query($db,$sqluse);
 			                $count=$count+1;  
                     //   $get_time=$found['Time']; $time=time(); $pass=$found['Staffid'];
 			              // $names=$firstname." ".$sirname;
+                    if (strlen($BenefitDesc)) {
+                      # code...
+                      $newString = substr($BenefitDesc, 0, 10). "...";
+                    }
 					    	 
 			      echo"<tr>    <td>$id</td>                                       
                           <td>$EmplNumber</td>        	
                           <td>$EmplName</td>
                           <td>$BenefitType</td>  
-			                 <td>$BenefitDesc</td>
+			                 <td>$newString</td>
 			                 <td>$BenefitAmount</td>
 			                 <td>$startDate</td>
 			                 <td>$endDate</td>
