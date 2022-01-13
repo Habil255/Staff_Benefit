@@ -236,6 +236,21 @@ if(isset($_POST['addmember']))
 				       
 	
  }
+ if(isset($_POST['deleteStaff'])){ 	
+	
+	 $tutor=$_POST['deleteStaff'];
+ 	 $querry="SELECT * FROM staff_ben WHERE emp_id='$tutor'";
+                     $results=mysqli_query($db,$querry);
+                    $checks=mysqli_num_rows($results);
+                     if($checks!=0)
+                     {
+      	 	                  $querry="DELETE FROM staff_ben WHERE emp_id='$tutor'";
+                              $results=mysqli_query($db,$querry);
+                               echo"ok"; 
+				      }
+				       
+	
+ }
  if(isset($_FILES['file2']['name'])&&$_POST['Change'])	{
 			 	
 	              $id=$_POST['id'];
